@@ -67,11 +67,11 @@ public class ProductService {
 	}
 
 	private void sendMessageToEmail(Product product) throws IOException {
-		Email from = new Email("dagalleazzo@gmail.com");
-		String subject = "ALERTA DE ITENS!!!!";
-		Email to = new Email("danielgalleazzo@gmail.com");
+		Email from = new Email("remetente@gmail.com");
+		String subject = "Atualização de itens";
+		Email to = new Email("destinatario@gmail.com");
 		Content content = new Content("text/plain", "O item " + product.getName() + ", com o valor de R$"
-				+ product.getPrice() + " está com os itens faltando! QUANTIDADE ATUAL: " + product.getQuantity());
+				+ product.getPrice() + " está com os itens faltando! Quantidade Atual: " + product.getQuantity());
 		Mail mail = new Mail(from, subject, to, content);
 
 		SendGrid sg = new SendGrid(this.apiToken);
